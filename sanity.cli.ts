@@ -1,10 +1,20 @@
-/**
-* This configuration file lets you run `$ sanity [command]` in this folder
-* Go to https://www.sanity.io/docs/cli to learn more.
-**/
-import { defineCliConfig } from 'sanity/cli'
+import { defineCliConfig } from 'sanity/cli';
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 
-export default defineCliConfig({ api: { projectId, dataset } })
+if (!projectId) {
+  console.error("🚨 Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID");
+}
+
+if (!dataset) {
+  console.error("🚨 Missing environment variable: NEXT_PUBLIC_SANITY_DATASET");
+}
+
+export default defineCliConfig({
+  api: {
+    projectId: projectId || "default_project_id",  // Replace with your actual project ID
+    dataset: dataset || "production", // Use "production" as a default dataset
+  },
+});
+

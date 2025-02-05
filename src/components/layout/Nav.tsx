@@ -8,7 +8,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import foodlogo from "../../../public/Foodtuck.png";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from 'next/link';
-import { client } from '@/sanity/lib/client';
+import  client  from '@/sanity/lib/client';
 import { PiUserBold } from 'react-icons/pi';
 import { FaRegHeart } from 'react-icons/fa';
 const Nav = () => {

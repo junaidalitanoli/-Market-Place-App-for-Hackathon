@@ -37,7 +37,7 @@ async function importData() {
     const [foodsResponse, chefsResponse] = await Promise.all($Promise);
     const foods = foodsResponse.data;
     const chefs = chefsResponse.data;
-    for (const food of foods) {
+    for (const food of foods)
       console.log(`Processing food: ${food.name}`);
       let imageRef = null;
       if (food.image) {
